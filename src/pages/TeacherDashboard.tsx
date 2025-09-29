@@ -13,7 +13,7 @@ const TeacherDashboard = () => {
     const teacherId = localStorage.getItem('teacherId');
     if (teacherId) {
       const token = localStorage.getItem('token');
-      fetch(`http://localhost:5000/api/teacher/students/${teacherId}`, { headers: token ? { Authorization: `Bearer ${token}` } : {} })
+      fetch(`https://smart-attendance-qk5b.onrender.com/api/teacher/students/${teacherId}`, { headers: token ? { Authorization: `Bearer ${token}` } : {} })
         .then(res => {
           if (res.status === 401 || res.status === 403) {
             alert('Session expired or not authorized');
@@ -30,7 +30,7 @@ const TeacherDashboard = () => {
 
   const handleReviewStudent = async (id: string, action: 'accept' | 'reject') => {
     const approved = action === 'accept';
-    const res = await fetch(`http://localhost:5000/api/teacher/students/${id}/approve`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ approved }) });
+    const res = await fetch(`https://smart-attendance-qk5b.onrender.com/api/teacher/students/${id}/approve`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ approved }) });
     const updated = await res.json();
     setStudents(prev => prev.map(s => s._id === id ? updated : s));
   };
@@ -39,7 +39,7 @@ const TeacherDashboard = () => {
     const teacherId = localStorage.getItem('teacherId');
     if (!teacherId) return alert('Teacher ID not found');
     const token = localStorage.getItem('token');
-    const res = await fetch(`http://localhost:5000/api/teacher/recognition/${teacherId}`, { method: 'POST', headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) }, body: JSON.stringify({ active }) });
+    const res = await fetch(`https://smart-attendance-qk5b.onrender.com/api/teacher/recognition/${teacherId}`, { method: 'POST', headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) }, body: JSON.stringify({ active }) });
     if (res.status === 401 || res.status === 403) {
       alert('Not authorized to toggle recognition');
       return;

@@ -17,7 +17,7 @@ const StudentDashboard: React.FC = () => {
   useEffect(() => {
     const studentId = localStorage.getItem('studentId');
     if (studentId) {
-      fetch(`http://localhost:5000/api/student/attendance/${studentId}`)
+      fetch(`https://smart-attendance-qk5b.onrender.com/api/student/attendance/${studentId}`)
         .then(res => res.json())
         .then(data => setAttendance(Array.isArray(data) ? data : []))
         .catch(() => setAttendance([]));
@@ -30,7 +30,7 @@ const StudentDashboard: React.FC = () => {
     if (assignedTeacherId) {
       const check = async () => {
         try {
-          const res = await fetch(`http://localhost:5000/api/teacher/recognition/${assignedTeacherId}`);
+          const res = await fetch(`https://smart-attendance-qk5b.onrender.com/api/teacher/recognition/${assignedTeacherId}`);
           if (res.ok) {
             const data = await res.json();
             setCanCapture(!!data.recognitionActive);
@@ -102,7 +102,7 @@ const StudentDashboard: React.FC = () => {
       if (!studentId) throw new Error('Student ID not found');
       if (!token) throw new Error('Authentication token not found');
 
-      const response = await fetch('http://localhost:5000/api/student/capture-attendance', {
+      const response = await fetch('https://smart-attendance-qk5b.onrender.com/api/student/capture-attendance', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -121,7 +121,7 @@ const StudentDashboard: React.FC = () => {
 
       toast({ title: 'Attendance marked', description: 'Your attendance has been recorded.' });
 
-      fetch(`http://localhost:5000/api/student/attendance/${studentId}`)
+      fetch(`https://smart-attendance-qk5b.onrender.com/api/student/attendance/${studentId}`)
         .then(res => res.json())
         .then(data => setAttendance(Array.isArray(data) ? data : []))
         .catch(() => {});
@@ -196,7 +196,7 @@ const StudentDashboard: React.FC = () => {
                         const teacherId = localStorage.getItem('teacherId');
                         if (!teacherId) return;
                         try {
-                          const res = await fetch(`http://localhost:5000/api/teacher/recognition/${teacherId}`);
+                          const res = await fetch(`https://smart-attendance-qk5b.onrender.com/api/teacher/recognition/${teacherId}`);
                           if (res.ok) {
                             const data = await res.json();
                             setCanCapture(!!data.recognitionActive);

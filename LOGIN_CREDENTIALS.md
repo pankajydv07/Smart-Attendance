@@ -75,8 +75,8 @@
 ---
 
 ## 🔧 Backend API Endpoints
-- **Health Check:** http://localhost:5000/health
-- **API Base:** http://localhost:5000/api/
+- **Health Check:** https://smart-attendance-qk5b.onrender.com/health
+- **API Base:** https://smart-attendance-qk5b.onrender.com/api/
 - **Auth:** /auth/login, /auth/register
 - **Admin:** /admin/teachers, /admin/teachers/:id/approve  
 - **Teacher:** /teacher/students/:teacherId, /teacher/recognition/:teacherId

@@ -23,7 +23,7 @@ const AdminDashboard = () => {
         return;
       }
 
-      const res = await fetch('http://localhost:5000/api/admin/teachers');
+      const res = await fetch('https://smart-attendance-qk5b.onrender.com/api/admin/teachers');
       if (!res.ok) throw new Error(`Server error ${res.status}`);
       const data = await res.json();
       setTeachers(data || []);
@@ -42,7 +42,7 @@ const AdminDashboard = () => {
 
   const handleReview = async (id: string, action: 'accept' | 'decline') => {
     const approved = action === 'accept';
-    const res = await fetch(`http://localhost:5000/api/admin/teachers/${id}/approve`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ approved }) });
+    const res = await fetch(`https://smart-attendance-qk5b.onrender.com/api/admin/teachers/${id}/approve`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ approved }) });
     const updated = await res.json();
     setTeachers(prev => prev.map(t => t._id === id ? updated : t));
   };
