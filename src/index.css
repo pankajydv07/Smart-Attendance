@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Educational Attendance System Design System - Optimized for Rural Schools */
+
+@layer base {
+  :root {
+    /* Base colors - warm, accessible educational palette */
+    --background: 46 100% 98%;
+    --foreground: 215 25% 15%;
+
+    /* Card system */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    /* Interactive elements */
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary - Educational blue */
+    --primary: 210 92% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 92% 40%;
+
+    /* Secondary - Warm accent */
+    --secondary: 25 95% 93%;
+    --secondary-foreground: 215 25% 20%;
+
+    /* Success - Forest green for attendance */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 142 76% 95%;
+
+    /* Warning - Amber for pending */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 38 92% 95%;
+
+    /* Muted elements */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 46%;
+
+    /* Accent - Soft purple */
+    --accent: 250 50% 92%;
+    --accent-foreground: 250 50% 20%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Form elements */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 92% 45%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(210 92% 35%));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(142 76% 30%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 92% 45%) 0%, hsl(142 76% 36%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 2px 10px -3px hsl(210 92% 45% / 0.1);
+    --shadow-medium: 0 4px 20px -4px hsl(210 92% 45% / 0.15);
+    --shadow-strong: 0 8px 30px -6px hsl(210 92% 45% / 0.2);
+
+    /* Spacing and sizing */
+    --radius: 0.75rem;
+
+    /* Sidebar tokens */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - maintain educational accessibility */
+    --background: 215 30% 8%;
+    --foreground: 210 40% 95%;
+    
+    --card: 215 30% 10%;
+    --card-foreground: 210 40% 95%;
+    
+    --popover: 215 30% 10%;
+    --popover-foreground: 210 40% 95%;
+    
+    --primary: 210 92% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 92% 50%;
+    
+    --secondary: 215 30% 18%;
+    --secondary-foreground: 210 40% 90%;
+    
+    --success: 142 76% 45%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 142 76% 15%;
+    
+    --warning: 38 92% 60%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 38 92% 15%;
+    
+    --muted: 215 30% 15%;
+    --muted-foreground: 215 15% 65%;
+    
+    --accent: 250 50% 20%;
+    --accent-foreground: 250 50% 90%;
+    
+    --destructive: 0 84% 70%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 215 30% 18%;
+    --input: 215 30% 18%;
+    --ring: 210 92% 55%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Educational system specific utilities */
+@layer components {
+  .attendance-present {
+    @apply bg-gradient-to-r from-green-50 to-green-100 text-green-800 border-green-200;
+  }
+
+  .attendance-absent {
+    @apply bg-gradient-to-r from-red-50 to-red-100 text-red-800 border-red-200;
+  }
+
+  .attendance-pending {
+    @apply bg-gradient-to-r from-amber-50 to-amber-100 text-amber-800 border-amber-200;
+  }
+
+  .dashboard-card {
+    @apply bg-card rounded-xl shadow-lg border border-border/50 transition-all duration-200 hover:shadow-xl;
+  }
+
+  .btn-gradient {
+    @apply bg-gradient-to-r from-primary to-primary-hover text-primary-foreground shadow-lg transition-all duration-200 hover:shadow-xl;
+  }
+}
