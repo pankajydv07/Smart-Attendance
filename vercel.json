@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "name": "Smart-Attendance",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/build/index.html"
+    }
+  ],
+  "env": {
+    "NODE_OPTIONS": "--openssl-legacy-provider",
+    "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
+  }
+}
