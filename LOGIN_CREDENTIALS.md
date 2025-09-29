@@ -5,6 +5,8 @@
 - ✅ Auto-login after student registration implemented
 - ✅ Admin login fixed to use backend API
 - ✅ Sample data created for testing
+- ✅ Backend deployed to: https://smart-attendance-qk5b.onrender.com
+- ✅ Frontend updated to use deployed backend
 
 ---
 
